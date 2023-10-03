@@ -27,15 +27,50 @@ console.log("Girilen Not :" +succor +" Harf karşılığı :" + controlSuccor(su
 
 // Kullanıcılara özel indirimleri gösteren fonksiyon
 
-let userCustomer = prompt("Üye Girişi")
-let productPrice =100
-if(userCustomer.length >0){
-    discount(userCustomer)
-}else{
-    console.log("Ürün Fiyatı :",productPrice)
+function discount(userCustomer,spacial){
+    if(spacial==11){
+        console.log (`
+        Merhaba Premium Müşterimiz ${userCustomer}
+        Premium müşterilerimize özel %50 + 10 tl indirim ile
+        Güncel Fiyat : ${productPrice=productPrice / 2 - 10} `)
+    }else{
+        console.log(`
+        "Merhaba müşterimiz ${userCustomer}
+        %50 indirimlerden yararlandınız
+        Güncel Fiyat :" ${productPrice=productPrice / 2}
+        Premium üyelik ayrıcalıkları için başvurmanız halinde 10 tl
+        indirim daha alabilirsiniz`)
+    }
 }
-function discount(userCustomer){
-    console.log(`
-    ${userCustomer}  %50 indirimlerden yararlandınız
-    Güncel Fiyat : ${productPrice=productPrice / 2}`)
+
+let userCustomer = prompt("Üye Üye Adını Giriniz ")
+let productPrice =100
+let clasUser =["Hakan" , "Hüseyin" ,"Hakkı"]  // Kayıtlı normal Kullanıcı
+writeText("KAYITLI KULLANICILAR")
+writeText(clasUser[0])
+writeText(clasUser[1])
+writeText(clasUser[2])
+
+let PremierCustomer =["ali" , "ahmet" , "mehmet"] // Kayıtlı Premium kullanıcı
+writeText("PREMİUM KULLANICILAR")
+writeText(PremierCustomer[0])
+writeText(PremierCustomer[1])
+writeText(PremierCustomer[2])
+let spacial=""
+
+if(PremierCustomer.includes(userCustomer)){
+    spacial =11
+    discount(userCustomer,spacial)
+}else if(clasUser.includes(userCustomer)){
+        spacial=1
+        discount(userCustomer,spacial)
+}else {
+    console.log("Ürün Fiyatı :",productPrice," Üye olmanız halinde extra indirim alabilirsiniz")
+}
+function writeText (info){
+    let know = document.createElement("p")
+    know.textContent =info
+    let tunnel = document.getElementById("promptIndex")
+    tunnel.appendChild(know)
+
 }
