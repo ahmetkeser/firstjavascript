@@ -1,3 +1,4 @@
+// Girilen sınav notunun harf karşılığını hesaplar
 let succor = prompt("Sınav Notunu Giriniz :")
     
 function controlSuccor(succor){    
@@ -22,3 +23,19 @@ function controlSuccor(succor){
     }
 }
 console.log("Girilen Not :" +succor +" Harf karşılığı :" + controlSuccor(succor))
+
+
+// Kullanıcılara özel indirimleri gösteren fonksiyon
+
+let userCustomer = prompt("Üye Girişi")
+let productPrice =100
+if(userCustomer.length >0){
+    discount(userCustomer)
+}else{
+    console.log("Ürün Fiyatı :",productPrice)
+}
+function discount(userCustomer){
+    console.log(`
+    ${userCustomer}  %50 indirimlerden yararlandınız
+    Güncel Fiyat : ${productPrice=productPrice / 2}`)
+}
