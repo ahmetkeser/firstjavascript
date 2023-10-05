@@ -17,3 +17,7 @@ function clickEvent (){
    // this.id =="positiveBtn" ? counter += 1 :counter -=1  // Kısa Hali
    //     counterDOM.innerHTML = counter
 }
+
+let ingClass =["abouth","above","across","action","activity","actor"]
+let trClass =["hakkında","üzerine","karşıya","çalışma","etkinlik","aktör"]
+localStorage.setItem("abouth","hakkında")
