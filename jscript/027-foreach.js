@@ -31,3 +31,17 @@ console.log(cars)
 // büyük harfe çevirdi ve içeriğe işledi
 cars.forEach((item,index,array)  =>console.log(array[index]=`${item.toUpperCase()}`))
 console.log(cars)
+
+
+
+//userlist id li elemanın bir kopyasını yap
+// for each ile döngüyü oluştur
+//döngü içersinde bir li yapısı oluştur içine döngüden gelen bilgiyi yerleştir
+//içeriği enjekte et
+//son yapıyı kopyalanan userlist id li yapıya gönder
+const addArrayCopy=document.querySelector('#userList')
+cars.forEach(item => {
+    const addArrayDOM= document.createElement('li')
+    addArrayDOM.innerHTML=item
+    addArrayCopy.appendChild(addArrayDOM)
+})
