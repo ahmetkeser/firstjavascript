@@ -15,7 +15,7 @@ const USER_OBJ = USERS.map(item =>
     )
 
     console.log(USER_OBJ)
-
+//*************************************************************************************** */
     const USERSAGE =[
         {fullName: "ahmet keser", age: 11},
         {fullName: "HAKKI BULUT", age: 23},
