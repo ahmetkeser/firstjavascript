@@ -1,44 +1,56 @@
-//  KEY - VALUE
-let leptop = {
-    brand : "Apple",
-    model : "MacBook Pro",
-    "2centry" : 2,
-    modelName : "RS15"
+// object Destructuring     
+let settings ={
+    userName : "Lorem İpsum",
+    password : "BadPassword",
+    isActive : true,
+    ip : "127.0.0.2",
+    serverName : "hotmail.com"
+
 }
-console.log(leptop)
+console.log(settings)
 
-console.log(leptop.brand,"---",leptop["brand"]) // iki şekildede çağırabiliriz
-console.log(leptop["2centry"])  //key adı rakamla başlamışsa sadece bu şekilde çağırabiliriz.
+//object içersindeki bilgilerin tek seferde çıkarılması
+// 1
+//      let firstUserName =settings.userName
+//      console.log(firstUserName)
 
-// Anahtar bilgisine yeni değer eklemek
-leptop.brand = "Mac"
-leptop["brand"] = "Mac1"    // iki şekilde de çağırabiliriz.
-console.log(leptop)
+//2
+        // console.log("----- object içersindeki bilgilerin tek seferde çıkarılması -----")
+        // let {userName,password,isActive,ip,serverName}=settings
+        // console.log(userName,password,isActive,ip,serverName)   // verilen keylerin içeriğini yazar
 
-// yeni key valueekleme
-leptop.version = "10.2.8"
-leptop["seri"]= "MSS6"  // iki şekilde giriş de uygundur.
-console.log(leptop)
+        // console.log(settings)   // objenin tamamını keyler ile birlikte yazar
 
-//Anahtar bilgilerine ulaşmak keys --->Object.keys(item)
-keys = Object.keys(leptop)
-console.log(keys)
-console.log(Object.keys(leptop))  // iki şekilde de çağırabiliriz.
+        // console.log(password) // objeyi çağırmadan keyi ile iç bilgisini yazar bu destructurin sayesinde
 
-console.log("----------------")
+// objeyi destructurin ile alırken keyleri değiştirebiliriz
+let {userName:lastName, password :firstPassword, ip:ServerIP, ...newSettings} = settings // destructuring işlemi ile : yardımı ile key adını değiştirebildik ve ... ile geri kalan bilgileri bir dizide topladık
+console.log(settings)
+console.log(lastName)
+console.log(newSettings) // ...yeniGrup ile atama yapılan ve boşta kalan diğer bilgileri buraya çektik
+console.log(settings.userName)
 
-keys.forEach(element => {
-    console.log("foreach ile",element)
-    console.log(leptop[element])    
-});
+// object içersindeki bazı bilgileri çıkarılması
+let {userName:lastName2, password:firstPassword2,ip:ServerIP2, ...newSettings2} = settings
+console.log(lastName2,firstPassword2,ServerIP2,newSettings2)
 
-//Değer bilgilerine ulaşmak (values) ---> Object.values(item)
-console.log(
-    Object.values(leptop)
-)
+// objenin destructuring ile kopyalanması
 
+//hatalı kullanım
+    // let settings2 =settings // kopyalama işlemi gerçekleşmiyor
+    // settings2.userName ="Değişen Bilgi"
+    // console.log(settings)
+    // console.log(settings2)
+//Doğrusu
+let settings2 = {...settings} // settings deki verileri çıkart kopyala ve settings2 ye kopyala
 
-let values = Object.values(leptop)
-values.forEach(item => {
-    console.log("2.foreach ile",item)  
-})
+    settings2.userName ="Değişen Bilgi"
+    console.log(settings)
+    console.log(settings2)
+
+// object kopyalama ile aynı ...let settings2 = {...settings}
+let score =[100,200,300,400]
+let [score1,score2, ...otherScore] = score 
+console.log(score1,score2,otherScore)
+let copyOfScore=[...score]
+console.log(copyOfScore)
