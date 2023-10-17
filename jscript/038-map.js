@@ -1,4 +1,13 @@
-const map1 = new Map();
+// Yöntemler ve özellikler şunlardır:
+
+// new Map()– haritayı oluşturur.
+// map.set(key, value)– değeri anahtarla saklar.
+// map.get(key)undefined– eğer keyharitada mevcut değilse , değeri anahtara göre döndürür .
+// map.has(key)– truevarsa key, falseyoksa döndürür.
+// map.delete(key)– öğeyi (anahtar/değer çifti) anahtarla kaldırır.
+// map.clear()– haritadaki her şeyi kaldırır.
+// map.size– geçerli öğe sayısını döndürür.
+// const map1 = new Map();
 
 map1.set('a', 1);
 map1.set('b', 2);
@@ -36,3 +45,31 @@ contacts.get("Jessie"); // {phone: "213-555-1234", address: "123 N 1st Ave"}
 contacts.delete("Raymond"); // false
 contacts.delete("Jessie"); // true
 console.log(contacts.size); // 1
+console.log(contacts)
+
+
+
+const myMap = new Map();
+myMap.set(0, "zero");
+myMap.set(1, "one");
+myMap.set(2, "three");
+/**************************************** */
+//              FOR
+for (const [key, value] of myMap) {
+  console.log(`${key} = ${value}`);
+}
+
+for (const key of myMap.keys()) {
+    console.log(key);
+}
+for (const value of myMap.values()) {
+    console.log(value);
+}
+for (const [key, value] of myMap.entries()) {
+    console.log(`${key} = ${value}`);
+}
+  /*************************************** */
+  //            FOREACH
+  myMap.forEach((value, key) => {
+    console.log(`${key} = ${value}`);
+  });
